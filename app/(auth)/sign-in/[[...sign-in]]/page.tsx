@@ -15,7 +15,7 @@ const SignInPage = () => {
                 </header>
                 <div className={"flex items-center justify-center"}>
                     <ClerkLoaded>
-                        <SignIn/>
+                        <SignIn path={"/sign-in"}/>
                     </ClerkLoaded>
                     <ClerkLoading>
                         <Loader2 className={"mt-8 animate-spin text-muted-foreground size-10"}/>
