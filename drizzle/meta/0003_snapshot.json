@@ -1,6 +1,6 @@
 {
-  "id": "fe8829c6-f940-4e53-9e3a-732f8f53187f",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "0960c649-b939-43a1-8e63-4aa70fc76210",
+  "prevId": "9a7e4914-f914-4d57-be22-8dc66f809277",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -22,12 +22,6 @@
         },
         "user_id": {
           "name": "user_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "bio": {
-          "name": "bio",
           "type": "text",
           "primaryKey": false,
           "notNull": true
