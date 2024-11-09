@@ -1,34 +1,29 @@
-import {Hono} from 'hono';
+import {Hono} from "hono";
 import {handle} from "hono/vercel";
-import {clerkMiddleware, getAuth} from "@hono/clerk-auth"
+import accounts from "@/api-routes/accounts";
+import {HTTPException} from "hono/http-exception";
 
-export const runtime = "edge";
+// export const runtime = "edge";
 
 const app = new Hono().basePath("/api");
 
 
-app.get(
-    "/hello",
-    clerkMiddleware(),
-    (ctx) => {
-        const auth = getAuth(ctx);
+// Error handling
+app.onError((error, ctx) => {
 
-        if(!auth?.userId) {
-            return ctx.json({"error": "Unauthorized"})
-        }
-
-        return ctx.json(
-            {
-                message: "Hello flame boy !"
-            }
-        )
+    // handling of errors that are thrown in api-routes
+    if (error instanceof HTTPException) {
+        return error.getResponse();
     }
-)
 
-app.get("/superhello", (ctx) => {
-    return ctx.json({message: "super hello"})
-})
+    // handling of global errors
+    return ctx.json({"error": "Internal Server Error"}, 401);
+});
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const routes = app.route("/accounts", accounts);
 
 export const GET = handle(app);
 export const PUT = handle(app);
+
+export type AppType = typeof routes;
