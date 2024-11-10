@@ -6,8 +6,9 @@ import {useNewAccount} from "@/features/accounts/hook/use-new-account";
 import AccountForm from "@/features/accounts/components/account-form";
 import {insertAccountSchema} from "@/database/schema";
 import {z} from "zod";
-import {useCreatAccount} from "@/features/accounts/hook/use-create-account";
+import {useCreatAccount} from "@/features/accounts/api/use-create-account";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const formSchema = insertAccountSchema.pick({
     name: true,
 });
