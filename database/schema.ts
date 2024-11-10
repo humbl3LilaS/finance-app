@@ -1,4 +1,5 @@
 import {pgTable, text} from "drizzle-orm/pg-core";
+import {createInsertSchema} from "drizzle-zod";
 
 
 export const accounts = pgTable("accounts", {
@@ -8,4 +9,4 @@ export const accounts = pgTable("accounts", {
     userId: text("user_id").notNull(),
 });
 
-export type InsertAccount = typeof accounts.$inferInsert;
+export const insertAccountSchema = createInsertSchema(accounts);
