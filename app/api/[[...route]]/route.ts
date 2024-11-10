@@ -2,6 +2,7 @@ import {Hono} from "hono";
 import {handle} from "hono/vercel";
 import accounts from "@/app/api/[[...route]]/accounts";
 import {cors} from "hono/cors";
+import categories from "./categories";
 
 
 // export const runtime = "edge";
@@ -11,7 +12,10 @@ app.use("*", cors());
 
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const routes = app.route("/accounts", accounts);
+const routes = app
+    .route("/accounts", accounts)
+    .route("/categories", categories);
+
 
 export const GET = handle(app);
 export const POST = handle(app);
