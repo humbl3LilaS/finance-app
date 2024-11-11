@@ -2,14 +2,14 @@
 
 
 import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle} from "@/components/ui/sheet";
-import {insertAccountSchema} from "@/database/schema";
+import {insertCategorySchema} from "@/database/schema";
 import {z} from "zod";
 import {useNewCategory} from "@/features/categories/hook/use-new-category";
 import {useCreatCategory} from "@/features/categories/api/use-create-category";
 import CategoryForm from "@/features/categories/components/category-form";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const formSchema = insertAccountSchema.pick({
+const formSchema = insertCategorySchema.pick({
     name: true,
 });
 

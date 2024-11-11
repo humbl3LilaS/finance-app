@@ -14,7 +14,7 @@ const formSchema = insertCategorySchema.pick({
 
 type FormValues = z.input<typeof formSchema>
 
-type AccountFormProps = {
+type CategoryFormProps = {
     id?: string;
     defaultValues?: FormValues;
     onSubmit: (values: FormValues) => void;
@@ -33,7 +33,7 @@ const CategoryForm = (
         onSubmit,
         onDelete,
         disabled,
-    }: AccountFormProps) => {
+    }: CategoryFormProps) => {
 
     const form = useForm<FormValues>(
         {

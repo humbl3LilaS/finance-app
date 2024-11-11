@@ -57,6 +57,13 @@
       "when": 1731303903924,
       "tag": "0007_blue_captain_britain",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1731333239792,
+      "tag": "0008_lean_moonstone",
+      "breakpoints": true
     }
   ]
 }
