@@ -6,7 +6,7 @@ import {DataTable} from "@/components/data-table";
 import {columns} from "@/app/(dashboard)/categories/column";
 import {Skeleton} from "@/components/ui/skeleton";
 import {useGetCategories} from "@/features/categories/api/use-get-categories";
-import {useBulkDeleteCategories} from "@/features/categories/api/use-bulk-delete";
+import {useBulkDeleteCategories} from "@/features/categories/api/use-bulk-delete-categories";
 import {useNewCategory} from "@/features/categories/hook/use-new-category";
 
 

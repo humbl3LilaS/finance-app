@@ -7,7 +7,7 @@ import {DataTable} from "@/components/data-table";
 import {columns} from "@/app/(dashboard)/accounts/column";
 import {useGetAccounts} from "@/features/accounts/api/use-get-accounts";
 import {Skeleton} from "@/components/ui/skeleton";
-import {useBulkDeleteAccounts} from "@/features/accounts/api/use-bulk-delete";
+import {useBulkDeleteAccounts} from "@/features/accounts/api/use-bulk-delete-accounts";
 
 
 const AccountsPage = () => {

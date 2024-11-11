@@ -67,7 +67,7 @@ const CategoryForm = (
                             <FormControl>
                                 <Input
                                     disabled={disabled}
-                                    placeholder={"eg. credit, debit"}
+                                    placeholder={"eg. Food, Travel etc..."}
                                     {...field}
                                 />
                             </FormControl>

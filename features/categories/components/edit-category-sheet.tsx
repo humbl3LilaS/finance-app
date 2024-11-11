@@ -22,7 +22,7 @@ const EditCategorySheet = () => {
     const onClose = useOpenCategory(state => state.onClose);
     const id = useOpenCategory(state => state.id);
 
-    const [ConfirmDialog, confirm] = useConfirm("Are you sure", "You are about to delete this transaction");
+    const [ConfirmDialog, confirm] = useConfirm("Are you sure", "You are about to delete this category");
 
     const {mutate: editCategory, isPending: isEditing} = useEditCategory(id);
     const {mutate: deleteCategory, isPending: isDeleting} = useDeleteCategory(id);

@@ -15,7 +15,7 @@ const Actions = ({id}: ActionsProps) => {
 
     const onOpen = useOpenCategory(state => state.onOpen);
 
-    const [ConfirmDialog, confirm] = useConfirm("Are you sure", "You are about to delete this transaction");
+    const [ConfirmDialog, confirm] = useConfirm("Are you sure", "You are about to delete this category");
 
     const {mutate: deleteCategory, isPending: isDeleting} = useDeleteCategory(id);
 

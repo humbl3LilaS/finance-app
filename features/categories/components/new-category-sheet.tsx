@@ -38,7 +38,7 @@ const NewCategorySheet = () => {
                         New category
                     </SheetTitle>
                     <SheetDescription>
-                        Create a new category to categorize your transaction
+                        Create a new category to categorize your transactions.
                     </SheetDescription>
                 </SheetHeader>
                 <CategoryForm

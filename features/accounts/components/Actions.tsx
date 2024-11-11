@@ -15,7 +15,7 @@ const Actions = ({id}: ActionsProps) => {
 
     const onOpen = useOpenAccount(state => state.onOpen);
 
-    const [ConfirmDialog, confirm] = useConfirm("Are you sure", "You are about to delete this transaction");
+    const [ConfirmDialog, confirm] = useConfirm("Are you sure", "You are about to delete this account");
 
     const {mutate: deleteAccount, isPending: isDeleting} = useDeleteAccount(id);
 
