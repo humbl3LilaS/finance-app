@@ -5,7 +5,7 @@ import {Button} from "@/components/ui/button";
 import {Edit, MoreHorizontal, Trash} from "lucide-react";
 import {useConfirm} from "@/hooks/use-confirm";
 import {useOpenCategory} from "@/features/categories/hook/use-open-category";
-import {useDeleteCategory} from "@/features/categories/api/use-delete.category";
+import {useDeleteCategory} from "@/features/categories/api/use-delete-category";
 
 type ActionsProps = {
     id: string;

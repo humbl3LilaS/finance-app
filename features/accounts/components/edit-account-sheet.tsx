@@ -9,7 +9,7 @@ import {useOpenAccount} from "@/features/accounts/hook/use-open-account";
 import {useGetAccountById} from "@/features/accounts/api/use-get-account-by-id";
 import {Loader2} from "lucide-react";
 import {useEditAccount} from "@/features/accounts/api/use-edit-account";
-import {useDeleteAccount} from "@/features/accounts/api/use-delete.account";
+import {useDeleteAccount} from "@/features/accounts/api/use-delete-account";
 import {useConfirm} from "@/hooks/use-confirm";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

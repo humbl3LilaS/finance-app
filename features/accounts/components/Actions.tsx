@@ -4,7 +4,7 @@ import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger
 import {Button} from "@/components/ui/button";
 import {Edit, MoreHorizontal, Trash} from "lucide-react";
 import {useOpenAccount} from "@/features/accounts/hook/use-open-account";
-import {useDeleteAccount} from "@/features/accounts/api/use-delete.account";
+import {useDeleteAccount} from "@/features/accounts/api/use-delete-account";
 import {useConfirm} from "@/hooks/use-confirm";
 
 type ActionsProps = {

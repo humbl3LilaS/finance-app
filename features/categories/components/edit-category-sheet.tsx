@@ -6,7 +6,7 @@ import {Loader2} from "lucide-react";
 import {useConfirm} from "@/hooks/use-confirm";
 import {useOpenCategory} from "@/features/categories/hook/use-open-category";
 import {useEditCategory} from "@/features/categories/api/use-edit-category";
-import {useDeleteCategory} from "@/features/categories/api/use-delete.category";
+import {useDeleteCategory} from "@/features/categories/api/use-delete-category";
 import CategoryForm from "@/features/categories/components/category-form";
 import {useGetCategoryById} from "@/features/categories/api/use-get-category-by-id";
 
