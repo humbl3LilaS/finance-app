@@ -52,7 +52,7 @@ const TransactionsPage = () => {
                                 const ids = rows.map((r) => r.original.id);
                                 mutate({ids});
                             }}
-                            filterKey={"name"}
+                            filterKey={"account"}
                             data={data}
                             disabled={isPending}/>}
                 </CardContent>

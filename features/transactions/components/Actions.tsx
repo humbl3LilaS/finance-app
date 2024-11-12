@@ -4,8 +4,8 @@ import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger
 import {Button} from "@/components/ui/button";
 import {Edit, MoreHorizontal, Trash} from "lucide-react";
 import {useConfirm} from "@/hooks/use-confirm";
-import {useOpenCategory} from "@/features/categories/hook/use-open-category";
-import {useDeleteCategory} from "@/features/categories/api/use-delete-category";
+import {useOpenTransaction} from "@/features/transactions/hook/use-open-transaction";
+import {useDeleteTransaction} from "@/features/transactions/api/use-delete-transaction";
 
 type ActionsProps = {
     id: string;
@@ -13,16 +13,16 @@ type ActionsProps = {
 
 const Actions = ({id}: ActionsProps) => {
 
-    const onOpen = useOpenCategory(state => state.onOpen);
+    const onOpen = useOpenTransaction(state => state.onOpen);
 
-    const [ConfirmDialog, confirm] = useConfirm("Are you sure", "You are about to delete this category");
+    const [ConfirmDialog, confirm] = useConfirm("Are you sure", "You are about to delete this transaction");
 
-    const {mutate: deleteCategory, isPending: isDeleting} = useDeleteCategory(id);
+    const {mutate: deleteTransaction, isPending: isDeleting} = useDeleteTransaction(id);
 
     const deleteHandler = async () => {
         const ok = await confirm();
         if (ok) {
-            deleteCategory();
+            deleteTransaction();
         }
     };
 
