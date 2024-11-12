@@ -8,10 +8,13 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useNewTransaction } from "@/features/transactions/hook/use-new-transaction";
 import { useGetTransactions } from "@/features/transactions/api/use-get-transactions";
 import { useBulkDeleteTransactions } from "@/features/transactions/api/use-bulk-delete-transactions";
+import {useBulkCreateTransactions} from "@/features/transactions/api/use-bulk-create-transactions";
 import { useState } from "react";
 import UploadButton from "@/features/transactions/components/upload-button";
 import ImportCart from "@/features/transactions/components/import-card";
 import { transactions } from "@/database/schema";
+import { useSelectAccount } from "@/features/transactions/hook/use-select-account";
+import { toast } from "sonner";
 
 const enum VARIANTS {
 	LIST = "list",
@@ -27,7 +30,10 @@ const INITIAL_IMPORT_RESULTS = {
 export type IInitialCvsState = typeof INITIAL_IMPORT_RESULTS;
 
 const TransactionsPage = () => {
+	const [AccountDialog, confirm] = useSelectAccount();
+
 	const openSheet = useNewTransaction((state) => state.onOpen);
+	const { mutate: bulkCreateTransaction } = useBulkCreateTransactions();
 	const { data, isLoading } = useGetTransactions();
 	const { mutate, isPending } = useBulkDeleteTransactions();
 
@@ -43,6 +49,26 @@ const TransactionsPage = () => {
 	const onCancelImport = () => {
 		setImportResults(INITIAL_IMPORT_RESULTS);
 		setVariant(VARIANTS.LIST);
+	};
+
+	const onSubmitInput = async (values: (typeof transactions.$inferInsert)[]) => {
+		const accountId = await confirm();
+
+		if (!accountId) {
+			toast.error("Please select an account to continue");
+		}
+
+		const data = values.map((value) => ({
+			...value,
+			accountId: accountId as string,
+		}));
+
+		bulkCreateTransaction(data, {
+			onSuccess: () => {
+				toast.success(`Added ${data.length} transactions`);
+				onCancelImport();
+			},
+		});
 	};
 
 	if (isLoading) {
@@ -66,10 +92,11 @@ const TransactionsPage = () => {
 	if (variant === VARIANTS.IMPORT) {
 		return (
 			<>
+				<AccountDialog />
 				<ImportCart
 					data={importResults.data}
 					onCancel={onCancelImport}
-					onSubmit={() => {}}
+					onSubmit={onSubmitInput}
 				/>
 			</>
 		);
