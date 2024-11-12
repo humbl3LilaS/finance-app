@@ -63,7 +63,7 @@ const TransactionForm = ({
 	const form = useForm<FormValues>({
 		resolver: zodResolver(formSchema),
 		defaultValues: defaultValues ? defaultValues : formDefaultValue,
-		mode: "onBlur",
+		mode: "onChange",
 	});
 
 	const handleSubmit: SubmitHandler<FormValues> = (values: FormValues) => {
